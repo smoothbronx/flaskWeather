@@ -22,7 +22,7 @@
             </div>
         </div>
     </section>
-    <div class="content">
+    <main>
         <section class="section">
             <div class="container">
                 <div class="columns">
@@ -89,19 +89,23 @@
                 </div>
             </div>
         </section>
-    </div>
-    <footer class="footer">
+    </main>
+    <footer>
+
+        <div class="left">
+            <img class="graficlogo" src="{{ url_for('static', filename='images/logo.jpg') }}" alt="" width="15%">
+        </div>
         <div class="middle">
-              <a class="btn" href="https://github.com/smoothbronx">
+            <a class="btn" href="https://github.com/smoothbronx">
                 <i class="fab fa-github"></i>
-              </a>
-              </a>
-              <a class="btn" href="#">
-                <i class="fab fa-yandex"></i>
-              </a>
-              <a class="btn" href="https://vk.com/amk.bronx69">
+            </a>
+            <a class="btn" href="#">
+                <i class="fa fa-envelope"></i>
+            </a>
+            <a class="btn" href="https://vk.com/amk.bronx69">
                 <i class="fab fa-vk"></i>
-              </a>
+            </a>
+
         </div>
     </footer>
 </body>
