@@ -1,41 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel='stylesheet' href="{{ url_for('static', filename='css/register.css') }}" type='text/css'>
+  <title>Sign up</title>
+
 </head>
 <body>
-<h1>Register page</h1>
+  <div class="page-wrap">
 
-{% with messages = get_flashed_messages() %}
-  {% if messages %}
-    <ul class=flashes>
-    {% for message in messages %}
-      <li>{{ message }}</li>
-    {% endfor %}
-    </ul>
-  {% endif %}
-{% endwith %}
+    <div class="left-panel">
+      <div class="illustration">
+        <img src="{{url_for('static', filename='images/loginlogo.png')}}" alt="Illustration" class="image" />
+      </div>
+    </div>
 
-<form method="POST">
-    <table>
-        <tr>
-            <td>Login</td>
-            <td><input type="text" name="login"></td>
-        </tr>
-        <tr>
-            <td>Password</td>
-            <td><input type="password" name="password"></td>
-        </tr>
-        <tr>
-            <td>Password retype</td>
-            <td><input type="password" name="password2"></td>
-        </tr>
-        <tr>
-            <td><a href="{{ url_for('login_page') }}">Login</a></td>
-            <td><input type="submit" value="Register"></td>
-        </tr>
-    </table>
-</form>
+    <div class="right-panel">
+      <h1><strong>Welcome,</strong> User</h1>
+
+      <form class="animated-form" method="POST">
+
+        <h3>Register your account</h3>
+
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" id="username" name="login" class="username" />
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" class="password" />
+        </div>
+        <div class="form-group">
+          <label for="password">Password retype</label>
+          <input type="password" name="password2" class="password" />
+        </div>
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <ul class=flashes>
+        {% for message in messages %}
+            <li>{{ message }}</li>
+        {% endfor %}
+        </ul>
+        {% endif %}
+        {% endwith %}
+
+
+        <div class="form-group flex-end">
+          <input type="submit" value="Register" class="button" />
+        </div>
+
+
+        <div class="login">
+          <a href="/login" class="link">Sign in</a>
+        </div>
+      </form>
+
+    </div>
+
+  </div>
+
+  <script type="text/javascript">
+    let input_fields = document.querySelectorAll('input');
+
+    for (let i = 0; i < input_fields.length; i++) {
+      let field = input_fields[i];
+      field.addEventListener('input', function (e) {
+        if (e.target.value != "") {
+          e.target.parentNode.classList.add('has-content');
+        } else if (e.target.value == "") {
+          e.target.parentNode.classList.remove('has-content');
+        }
+      });
+    }
+  </script>
 </body>
 </html>
