@@ -12,16 +12,16 @@
 </head>
 
 <body>
-    <section class="hero is-primary">
-        <div class="hero-body">
-            <div class="container">
-                <h1 class="title">
-                    Weather
-                </h1>
+    <div class="header">
+        <h1 class="headertitle">
+            Weather
+        </h1>
+        <a class="logbtn" href="/logout">
+            <i class="fa fa-power-off" aria-hidden="true"></i>
+        </a>
 
-            </div>
-        </div>
-    </section>
+    </div>
+
     <main>
         <section class="section">
             <div class="container">
@@ -33,7 +33,7 @@
                                     <input class="input" name="city" type="text" placeholder="City Name">
                                 </div>
                                 <div class="control">
-                                    <button class="button is-info">
+                                    <button class="accbtn">
                                         Add City
                                     </button>
                                 </div>
@@ -91,10 +91,6 @@
         </section>
     </main>
     <footer>
-
-        <div class="left">
-            <img class="graficlogo" src="{{ url_for('static', filename='images/logo.jpg') }}" alt="" width="15%">
-        </div>
         <div class="middle">
             <a class="btn" href="https://github.com/smoothbronx">
                 <i class="fab fa-github"></i>

@@ -14,38 +14,93 @@ body{
 footer{
     width: 100%;
     height: auto;
-    background: #231f20;
+    background: black;
     margin: 0 auto;
     text-align: center;
     padding: 3rem 1.5rem 6rem;
+    align-items: center;
 }
 
+.accbtn{
+    background-color: black;
+    border-color: transparent;
+    color: #fff;
+    justify-content: center;
+    padding-left: 0.75em;
+    padding-right: 0.75em;
+    text-align: center;
+    white-space: nowrap;
+    padding-top: calc(0.375em - 1px);
+    position: relative;
+    vertical-align: top;
+    padding-bottom: calc(0.375em - 1px);
+    display: inline-flex;
+    font-size: 1rem;
+    height: 2.25em;
+}
+
+.accbtn:hover{
+    z-index: 2;
+    background-color: rgb(50,50,50);
+    border-color: transparent;
+    color: #fff;
+}
+
+
+.header{
+    background-color: black;
+    color: white;
+    padding: 30px 10%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.headertitle{
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.125;
+}
 
 .graficlogo{
     display: block;
     margin: 100;
 }
-
-
+button{
+    margin: 0;
+    font: Ubuntu;
+}
+.container{
+    margin: 0 auto;
+    position: relative;
+    max-width: 1344px;
+    width: 1344px;
+}
 .middle{
   position: absolute;
   transform: translateY(-50%);
   width: 100%;
   text-align: center;
 }
-.btn{
+.btn, .logbtn{
   display: inline-block;
   width: 60px;
   height: 60px;
   background: rgb(50,50,50);
   margin: 5px;
-  border-radius: 30%;
+  border-radius: 50%;
   box-shadow: 0 5px 15px -5px #00000070;
-  color: #f1f1f1;
+  color: grey;
   overflow: hidden;
   position: relative;
+  text-align:center;
 }
-.btn i{
+
+.btn{
+    color: grey;
+}
+
+.btn, .logbtn i{
   line-height: 60px;
   font-size: 30px;
   transition: 0.2s linear;
@@ -82,3 +137,7 @@ footer{
   }
 }
 
+.logbtn:hover i{
+  font-size: 40px;
+  color: white;
+}

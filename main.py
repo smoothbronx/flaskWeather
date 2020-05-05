@@ -3,6 +3,7 @@ from flask import Flask, render_template, redirect, url_for, request, flash
 from flask_login import login_user, login_required, logout_user, UserMixin, LoginManager, current_user
 from werkzeug.security import check_password_hash, generate_password_hash
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__)
 app.config['DEBUG'] = True
@@ -17,7 +18,8 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
     login = db.Column(db.String(128), nullable=False, unique=True)
     password = db.Column(db.String(255), nullable=False)
-
+    ip = db.Column(db.String(50), nullable=False)
+    creation_datetime = db.Column(db.String(50), nullable=False)
 
 @manager.user_loader
 def load_user(user_id):
@@ -112,6 +114,9 @@ def register():
     login = request.form.get('login')
     password = request.form.get('password')
     password2 = request.form.get('password2')
+    user_ip = request.remote_addr
+    cr_datetime = datetime.now().strftime('%H:%M %m/%d/%Y')
+
 
     if request.method == 'POST':
         if not (login or password or password2):
@@ -120,7 +125,7 @@ def register():
             flash('Passwords are not equal!')
         else:
             hash_pwd = generate_password_hash(password)
-            new_user = User(login=login, password=hash_pwd)
+            new_user = User(login=login, password=hash_pwd, ip=user_ip, creation_datetime=cr_datetime)
             db.session.add(new_user)
             db.session.commit()
 
