@@ -1,0 +1,1 @@
+Before you start using this application, you must install the required libraries from the file 'requirements.txt'

@@ -1,0 +1,9 @@
+Library             Version
+
+requests            2.22.0
+flask               1.1.2
+flask_login         0.5.0
+flask_sqlalchemy    2.4.1
+werkzeug            1.0.1
+datetime            Pre-installed by the system
+hashlib              Pre-installed by the system
